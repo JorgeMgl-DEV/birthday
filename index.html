@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Para Alguém Inesquecível</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(145deg, #0f0f1a, #1a1a2e);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            padding: 40px 20px;
+            max-width: 800px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ff7eb3;
+            margin-bottom: 10px;
+        }
+
+        #texto {
+            font-size: 1.3rem;
+            white-space: pre-line;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .digitar::after {
+            content: '|';
+            animation: piscar 1s infinite;
+        }
+
+        @keyframes piscar {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 1rem;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff1e62;
+        }
+
+        .foto-galeria {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .foto-galeria img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 126, 179, 0.3);
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        iframe {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Feliz Aniversário 🎂</h1>
+        <div id="texto" class="digitar"></div>
+        <button onclick="mostrarFoto()">Ver uma lembrança 💫</button>
+        <div class="foto-galeria" id="foto">
+            <img src="Imagem do WhatsApp de 2025-05-27 à(s) 19.08.49_0ba44958.jpg" alt="Lembrança de nós dois">
+        </div>
+        <div class="foto-galeria" id="foto">
+            <img src="Imagem do WhatsApp de 2025-05-27 à(s) 19.08.49_ab3bd5b4.jpg" alt="Lembrança de nós dois">
+        </div>
+    </div>
+
+    <!-- Música de fundo -->
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/3JiMr-HgHJ8?autoplay=1&loop=1&playlist=3JiMr-HgHJ8"
+        frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
+    <footer>
+        Ainda aqui — no tempo certo, no jeito certo, na hora que a vida quiser 🌙
+    </footer>
+
+    <script>
+        const textoCompleto = `Sabe aquela pessoa que mesmo com o tempo ainda te faz sorrir só de lembrar?
+
+Você é isso pra mim.
+
+Mesmo que a vida tenha seguido caminhos diferentes,
+sempre guardei um espaço bonito pra você aqui dentro.
+
+Hoje é o seu dia, e eu só queria te lembrar:
+você é inesquecível.
+
+Feliz aniversário ❤️`;
+
+        let i = 0;
+        const textoEl = document.getElementById("texto");
+
+        function digitar() {
+            if (i < textoCompleto.length) {
+                textoEl.textContent += textoCompleto.charAt(i);
+                i++;
+                setTimeout(digitar, 50);
+            } else {
+                textoEl.classList.remove("digitar");
+            }
+        }
+
+        function mostrarFoto() {
+            document.getElementById("foto").style.display = 'block';
+        }
+
+        digitar();
+    </script>
+</body>
+
+</html>
